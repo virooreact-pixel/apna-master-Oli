@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght=700&family=Poppins:wght=400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0f3f6;
+  color: #2c3e50;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #00004d 0%, #000080 100%);
+  color: white;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-bottom: 5px solid #FF9933;
+}
+
+.hero-section h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.hero-section h1 span {
+  color: #FF9933;
+}
+
+.sparkle-icon {
+  color: #FF9933;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+.badge-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-weight: 500;
+}
+
+.main-content {
+  flex: 1;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 2rem 1.2rem;
+  width: 100%;
+}
+
+.control-panel {
+  background: white;
+  padding: 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  margin-bottom: 2.5rem;
+  border-top: 4px solid #000080;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.input-field-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-field-wrapper label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.input-field-wrapper input, .input-field-wrapper select {
+  padding: 11px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #2d3748;
+  outline: none;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+.input-field-wrapper input:focus, .input-field-wrapper select:focus {
+  border-color: #000080;
+  box-shadow: 0 0 0 3px rgba(0, 0, 128, 0.15);
+}
+
+.button-group-heading {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  color: #2d3748;
+}
+
+.button-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.button-group button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 18px;
+  background-color: #FF9933;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 5px rgba(255, 153, 51, 0.3);
+  transition: all 0.2s ease;
+}
+
+.button-group button:hover {
+  background-color: #e67e17;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(255, 153, 51, 0.4);
+}
+
+.button-group button:disabled {
+  background-color: #cbd5e1;
+  color: #64748b;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button-group .btn-active {
+  background-color: #000080 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 128, 0.3);
+}
+
+.notebook {
+  background-color: #fcf8f2;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15), inset -1px 0 5px rgba(0,0,0,0.05);
+  border: 1px solid #e1d7c7;
+  position: relative;
+  overflow: hidden;
+}
+
+.notebook-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  background: linear-gradient(to right, #ccc 0%, #e6e6e6 30%, #fff 70%, #d9d9d9 100%);
+  border-right: 1px solid #b3b3b3;
+  z-index: 10;
+}
+
+.notebook-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 25px 15px 40px;
+  background-color: #f3eae0;
+  border-bottom: 2px solid #e1d7c7;
+}
+
+.sticker-label {
+  background: white;
+  padding: 6px 16px;
+  border: 2px dashed #000080;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #333;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+.sticker-label strong {
+  color: #000080;
+}
+
+.sticker-label span {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.notebook-page {
+  position: relative;
+  min-height: 550px;
+  background-image: repeating-linear-gradient(transparent, transparent 29px, #c2d6eb 30px);
+  padding-top: 31px;
+}
+
+.margin-line {
+  position: absolute;
+  left: 75px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #ff5252;
+  opacity: 0.8;
+  z-index: 5;
+}
+
+.horizontal-top-line {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #ff5252;
+  opacity: 0.5;
+  z-index: 4;
+}
+
+.page-content {
+  position: relative;
+  z-index: 6;
+  padding: 15px 30px 40px 95px;
+  line-height: 30px;
+  font-size: 1.05rem;
+  color: #1a2a3a;
+}
+
+.notebook-title-tag {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: #000080;
+  margin-bottom: 1.5rem;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.generated-markdown-content h1, 
+.generated-markdown-content h2, 
+.generated-markdown-content h3 {
+  color: #000066;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  line-height: 35px;
+}
+
+.generated-markdown-content h3 {
+  font-size: 1.2rem;
+}
+
+.generated-markdown-content strong {
+  color: #b35900;
+}
+
+.generated-markdown-content li {
+  margin-left: 20px;
+  list-style-type: square;
+}
+
+.notebook-placeholder {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: #8fa0b0;
+}
+
+.notebook-placeholder p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.notebook-placeholder span {
+  font-size: 0.95rem;
+  display: block;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.loader-box {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: #000080;
+}
+
+.spin-loader {
+  animation: spin 1.2s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.loader-box h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.loader-box p {
+  font-size: 0.9rem;
+  color: #64748b;
+  max-width: 450px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.error-card {
+  background-color: #fff5f5;
+  border: 1px dashed #ff4d4d;
+  padding: 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 2rem;
+  line-height: 1.6;
+}
+
+.error-card h4 {
+  color: #cc0000;
+  font-size: 1.15rem;
+  margin: 0.5rem 0;
+}
+
+.error-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+}
+
+.retry-btn {
+  background-color: #cc0000;
+}
+
+.refresh-btn {
+  background-color: #000080;
+  margin-left: 8px;
+}
+
+.notebook-footer-refresh-hint {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #cbd5e1;
+  font-size: 0.85rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+footer {
+  background-color: #1a202c;
+  color: #a0aec0;
+  text-align: center;
+  padding: 1.8rem 1rem;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  border-top: 4px solid #000080;
+  line-height: 1.6;
+}
+
+footer strong {
+  color: white;
+}
+
+footer .sub-foot {
+  font-size: 0.75rem;
+  color: #718096;
+  margin-top: 4px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@media (max-width: 600px) {
+  .hero-section h1 { font-size: 2rem; }
+  .margin-line { left: 50px; }
+  .page-content { padding-left: 65px; font-size: 0.95rem; }
+  .notebook-header { padding-left: 20px; }
+  }
