@@ -12,10 +12,14 @@ export default async function handler(req, res) {
   }
 
   // Fallback free models in priority order
+  const MODELS =  [  // Fallback free models in priority order
   const MODELS = [
+    "meta-llama/llama-3.3-70b-instruct:free",
+    "qwen/qwen-2.5-72b-instruct:free",
     "google/gemma-3-27b-it:free",
     "meta-llama/llama-3.2-11b-vision-instruct:free",
-    "qwen/qwen-2.5-72b-instruct:free"
+    "microsoft/phi-3-medium-128k-instruct:free"
+  ];
   ];
 
   try {
